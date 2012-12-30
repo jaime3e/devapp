@@ -8,6 +8,19 @@
 <body>
 <script src="js/jquery.min.js"></script>
 <script src="js/kendo.all.min.js"></script>
+ <script type="text/javascript" src="phonegap.js"></script>
+
+
+<script>
+ document.addEventListener("deviceready", onDeviceReady, false);
+
+        // Cordova is ready
+        //
+        function onDeviceReady() {
+           alert('phonegap ready');
+        }
+
+</script>
 
 <div data-role="view" id="home"   data-init="mobileListViewTemplatesInit" data-layout="home">
     
