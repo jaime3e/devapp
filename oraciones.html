@@ -1,56 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Devocionario</title>
-    
-     <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-    <script src="js/jquery.min.js"></script>
-    <script src="js/kendo.mobile.min.js"></script>
-    <link href="styles/kendo.common.min.css" rel="stylesheet" />
-    <link href="styles/kendo.mobile.all.min.css" rel="stylesheet" />
+   
 </head>
 <body>
    
-   <div data-role="view" data-init="mobileListViewTemplatesInit" id="listview-templates" data-title="Oraciones" data-layout="mobile-tabstrip">
+   <div data-role="view" id="oraciones"   data-init="mobileListViewTemplatesInitOraciones" data-layout="oraciones">
     
-   <header data-role="header">
-        <div data-role="navbar">
-        <a  href="index.html" data-rel="external" id="back-button" class="nav-button" data-align="left" data-role="backbutton">Regresar</a>
-            
-            <span data-role="view-title">Contacts</span>
-        </div>
-    </header>
-   <div class="head">&nbsp;</div>
-   
-   
-   
-   
-   
-   <ul id="custom-listview" data-role="listview" data-style="inset" data-type="group">
-        
-    </ul>
-   
-   
-    <div data-role="footer">
-        <div data-role="tabstrip">
-            <a href="#tabstrip-rating" data-icon="favorites">créditos
-            </a><a href="#tabstrip-settings" data-icon="settings">configuración</a>
-        </div>
+    <div class="head">&nbsp;</div>
+    <ul id="custom-listview-oraciones"></ul>
     </div>
-    
-    </div>
-    
-    
-    
-    
-    <script type="text/x-kendo-template" id="customListViewTemplate">
+   
+   
+   
+<script type="text/x-kendo-template" id="customListViewTemplateOraciones">
     <img class="item-photo" src="${url}" />
     <h3 class="item-title">${name}</h3>
-    <a data-role="button" class="details-link">Order</a>
+    <a href="rezo.html" data-role="button" class="details-link">Rezar</a>
 </script>
 
+
+
 <script>
-    var groupedData = [
+    var groupedDataOraciones = [
         { name: "Ave María", url: "obji/img/oraciones/1a.jpg", letter: "Cotidianas" },
         { name: "Padre Nuestro", url: "obji/img/oraciones/0a.jpg", letter: "Cotidianas" },
 		
@@ -64,26 +36,25 @@
         
     ];
 
-    function mobileListViewTemplatesInit() {
-        $("#custom-listview").kendoMobileListView({
-            dataSource: kendo.data.DataSource.create({data: groupedData, group: "letter" }),
-            template: $("#customListViewTemplate").html(),
+    function mobileListViewTemplatesInitOraciones() {
+        $("#custom-listview-oraciones").kendoMobileListView({
+            dataSource: kendo.data.DataSource.create({data: groupedDataOraciones, group: "letter" }),
+            template: $("#customListViewTemplateOraciones").html(),
             headerTemplate: "<h2>${value}</h2>"
         });
     }
 </script>
     
     
-    
-    
-    
+
+   
     
     
     <style scoped>
 	
 	
 	
-#custom-listview .item-photo
+#custom-listview-oraciones .item-photo
 {
     width: 4em;
     height: 4em;
@@ -96,14 +67,14 @@
 }
 
 	
-#custom-listview .details-link
+#custom-listview-oraciones .details-link
 {
     margin-top: -1em;
     position: absolute;
     right: 0.6em;
     top: 50%;
 }
-	#custom-listview .item-title
+	#custom-listview-oraciones .item-title
 {
 	float: left;
 	font-size: 1em;
@@ -112,7 +83,7 @@
     width: 50%;
 }
 	
-#listview-templates .head {
+.head {
 	display: block;
 	margin: 1em;
 	height:200px;
@@ -126,7 +97,7 @@
 </style>
     
     <style>
-	#listview-templates .km-content
+	#oraciones .km-content
 {
    // background-color: #f0f0f0;
 	background: url(obji/img/intro/nubes.jpg);
@@ -141,12 +112,10 @@
 		}
 		
 	.km-listview .km-list {
-opacity:.8;
+opacity:0.8;
+filter:alpha(opacity=80); /* For IE8 and earlier */
 }
-    
-    </style>
-    <script>
-    var app = new kendo.mobile.Application(document.body);
-</script>
+   
+   
 </body>
 </html>

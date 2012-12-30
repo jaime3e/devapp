@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Devocionario</title>
+    
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <script src="js/jquery.min.js"></script>
+    <script src="js/kendo.mobile.min.js"></script>
+    <link href="styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="styles/kendo.mobile.all.min.css" rel="stylesheet" />
+</head>
+<body>
+   
+   <div data-role="view" data-init="mobileListViewTemplatesInit" id="listview-templates" data-title="Oraciones" data-layout="mobile-tabstrip">
+    
+   <header data-role="header">
+        <div data-role="navbar">
+        <a  href="index.html" data-rel="external" id="back-button" class="nav-button" data-align="left" data-role="backbutton">Regresar</a>
+            
+            <span data-role="view-title">Contacts</span>
+        </div>
+    </header>
+   <div class="head">&nbsp;</div>
+   
+   
+   
+   
+   
+   <ul id="custom-listview" data-role="listview" data-style="inset" data-type="group">
+        
+    </ul>
+   
+   
+    <div data-role="footer">
+        <div data-role="tabstrip">
+            <a href="#tabstrip-rating" data-icon="favorites">créditos
+            </a><a href="#tabstrip-settings" data-icon="settings">configuración</a>
+        </div>
+    </div>
+    
+    </div>
+    
+    
+    
+    
+    <script type="text/x-kendo-template" id="customListViewTemplate">
+    <img class="item-photo" src="${url}" />
+    <h3 class="item-title">${name}</h3>
+    <a data-role="button" class="details-link">Order</a>
+</script>
+
+<script>
+    var groupedData = [
+        { name: "Ave María", url: "obji/img/oraciones/1a.jpg", letter: "Cotidianas" },
+        { name: "Padre Nuestro", url: "obji/img/oraciones/0a.jpg", letter: "Cotidianas" },
+		
+        { name: "Consagración al Corazón de Jesús", url: "obji/img/oraciones/2a.jpg", letter: "C" },
+		
+        { name: "Credo", url: "obji/img/oraciones/3a.jpg", letter: "C" },
+		
+        { name: "Yo Pecador", url: "obji/img/oraciones/4a.jpg", letter: "Confesión" },
+		
+        { name: "Acto de contricción", url: "obji/img/oraciones/5a.jpg", letter: "Confesión" }
+        
+    ];
+
+    function mobileListViewTemplatesInit() {
+        $("#custom-listview").kendoMobileListView({
+            dataSource: kendo.data.DataSource.create({data: groupedData, group: "letter" }),
+            template: $("#customListViewTemplate").html(),
+            headerTemplate: "<h2>${value}</h2>"
+        });
+    }
+</script>
+    
+    
+    
+    
+    
+    
+    
+    <style scoped>
+	
+	
+	
+#custom-listview .item-photo
+{
+    width: 4em;
+    height: 4em;
+    float: left;
+    margin: .5em 0;
+    -webkit-box-shadow: 0 1px 3px #333;
+    box-shadow: 0 1px 3px #333;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+	
+#custom-listview .details-link
+{
+    margin-top: -1em;
+    position: absolute;
+    right: 0.6em;
+    top: 50%;
+}
+	#custom-listview .item-title
+{
+	float: left;
+	font-size: 1em;
+    line-height: 1.4em;
+    margin: .3em 1em 0 .6em;
+    width: 50%;
+}
+	
+#listview-templates .head {
+	display: block;
+	margin: 1em;
+	height:200px;
+	background: url(obji/img/intro/dove.png) no-repeat center center;
+	background-size:contain;
+}
+.km-ios #listview-templates .head {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+</style>
+    
+    <style>
+	#listview-templates .km-content
+{
+   // background-color: #f0f0f0;
+	background: url(obji/img/intro/nubes.jpg);
+	background-position:center;
+	background-position:top;
+	background-origin:border-box;
+		background-size:cover;
+}
+
+    #botones{
+	
+		}
+		
+	.km-listview .km-list {
+opacity:.8;
+}
+    
+    </style>
+    <script>
+    var app = new kendo.mobile.Application(document.body);
+</script>
+</body>
+</html>

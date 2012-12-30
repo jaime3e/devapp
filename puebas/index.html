@@ -19,13 +19,13 @@
 
     <section data-role="layout" data-id="home">
         <header data-role="header">
-            <div data-role="navbar">Devocionario</div>
+            <div data-role="navbar">My App</div>
         </header>
         <!--View content will render here-->
         <footer data-role="footer">
             <div data-role="tabstrip">
-                 
-        <a href="about.html">Acerca de..</a>         
+                 <a href="#">Home</a>
+        <a href="about.html">About</a>         
             </div> 
         <footer>
     </section>
@@ -33,59 +33,41 @@
     
      <section data-role="layout" data-id="oraciones">
        <header data-role="header">
-            <div data-role="navbar">
-             <a  href="#home"  id="back-button" class="nav-button" data-align="left" data-role="backbutton">Regresar</a>
-            Oraciones
-            </div>
-           
+            <div data-role="navbar">Oraciones</div>
+            <a  href="#home"  id="back-button" class="nav-button" data-align="left" data-role="backbutton">Regresar</a>
         </header>
        
         <!--View content will render here-->
         <footer data-role="footer">
             <div data-role="tabstrip">
                 
-        <a href="home">Principal</a>
+                 <a href="view2">VIEW 2</a>
         <a href="about.html">About</a>         
             </div> 
         <footer>
     </section>
-    
-    
-    
-     <section data-role="layout" data-id="rezo">
-       <header data-role="header">
-            <div data-role="navbar">
-             <a  href="oraciones.html"  id="back-button" class="nav-button" data-align="left" data-role="backbutton">Oraciones</a>
-            Oraciones
-            </div>
-           
-        </header>
-       
-        <!--View content will render here-->
-        <footer data-role="footer">
-            <div data-role="tabstrip">
-                
-        <a href="home">Principal</a>
-        <a href="about.html">About</a>         
-            </div> 
-        <footer>
-    </section>
-    
 
 <script type="text/x-kendo-template" id="customListViewTemplate">
     <img class="item-photo" src="${url}" />
     <h3 class="item-title">${name}</h3>
-    <a href="${to}" data-role="button" class="details-link" data-icon="add">Continuar</a>
-	
+    <a data-role="button" class="details-link">Order</a>
 </script>
 
 
 
 <script>
     var groupedData = [
-        { name: "Lista de Oraciones", url: "obji/img/oraciones/1a.jpg", letter: "Menu",to:"oraciones.html" },
-        { name: "Mis Oraciones", url: "obji/img/oraciones/0a.jpg", letter: "Menu" ,to:"oraciones.html"},
+        { name: "Ave María", url: "obji/img/oraciones/1a.jpg", letter: "Cotidianas" },
+        { name: "Padre Nuestro", url: "obji/img/oraciones/0a.jpg", letter: "Cotidianas" },
 		
+        { name: "Consagración al Corazón de Jesús", url: "obji/img/oraciones/2a.jpg", letter: "C" },
+		
+        { name: "Credo", url: "obji/img/oraciones/3a.jpg", letter: "C" },
+		
+        { name: "Yo Pecador", url: "obji/img/oraciones/4a.jpg", letter: "Confesión" },
+		
+        { name: "Acto de contricción", url: "obji/img/oraciones/5a.jpg", letter: "Confesión" }
+        
     ];
 
     function mobileListViewTemplatesInit() {
@@ -134,8 +116,8 @@
 	#custom-listview .item-title
 {
 	float: left;
-	font-size: 2em;
-    line-height: 2em;
+	font-size: 1em;
+    line-height: 1.4em;
     margin: .3em 1em 0 .6em;
     width: 50%;
 }
@@ -154,7 +136,7 @@
 </style>
     
     <style>
-	#home .km-content
+	#view2 .km-content
 {
    // background-color: #f0f0f0;
 	background: url(obji/img/intro/nubes.jpg);
