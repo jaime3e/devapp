@@ -16,16 +16,17 @@
     
    <header data-role="header">
         <div data-role="navbar">
+            <a id="back-button" class="nav-button" data-align="left" data-role="backbutton">Regresar</a>
             <span data-role="view-title">Contacts</span>
         </div>
     </header>
-   <div class="head">&nbsp;</div>
+   
    
    <ul id="botones" data-role="listview" data-style="inset" data-type="group">
         <li>el día de hoy deseo:
             <ul>
-                <li data-icon="play"><a href="oraciones.html" data-rel="external" data-transition="overlay:down reverse">Rezar Oraciones</a></li>
-                <li data-icon="featured"><a href="../../content/mobile/application/music-store.html">Mis Oraciones</a></li>
+                <li data-icon="play"><a href="../../content/mobile/application/play-music.html">Rezar Oraciones</a></li>
+                <li data-icon="cart"><a href="../../content/mobile/application/music-store.html">Mis Oraciones</a></li>
             </ul>
         </li>
     </ul>
@@ -33,33 +34,20 @@
    
     <div data-role="footer">
         <div data-role="tabstrip">
-            <a href="#tabstrip-rating" data-icon="favorites">créditos
-            </a><a href="#tabstrip-settings" data-icon="settings">configuración</a>
+            <a href="#tabstrip-profile" data-icon="home">Principal
+            </a><a href="#tabstrip-rating" data-icon="favorites">Ramillete
+            </a><a href="#tabstrip-settings" data-icon="settings">WWW</a>
         </div>
     </div>
     
     </div>
     
     
-    <style scoped>
-#listview-templates .head {
-	display: block;
-	margin: 1em;
-	height:200px;
-	background: url(obj/img/intro/dove.png) no-repeat center center;
-	background-size:contain;
-}
-.km-ios #listview-templates .head {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}
-</style>
-    
     <style>
 	#listview-templates .km-content
 {
    // background-color: #f0f0f0;
-	background: url(obj/img/intro/nubes.jpg);
+	background: url(obj/img/intro/c.jpg);
 	background-position:center;
 	background-position:top;
 	background-origin:border-box;
@@ -77,9 +65,6 @@ opacity:.8;
     </style>
     <script>
     var app = new kendo.mobile.Application(document.body);
-	
-app.navigate("oraciones.html");
-	
 </script>
 </body>
 </html>
