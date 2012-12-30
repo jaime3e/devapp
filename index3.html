@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <title>Devocionario</title>
+    
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <script src="js/jquery.min.js"></script>
+    <script src="js/kendo.mobile.min.js"></script>
+    <link href="styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="styles/kendo.mobile.all.min.css" rel="stylesheet" />
+</head>
+<body>
+   
+   <div data-role="view" id="listview-templates" data-title="Devocionario">
+    
+   <header data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title">Contacts</span>
+        </div>
+    </header>
+   <div class="head">&nbsp;</div>
+   
+   <ul id="botones" data-role="listview" data-style="inset" data-type="group">
+        <li>
+            <ul>
+                <li data-icon="play"><a href="oraciones.html"  data-rel="external">Rezar Oraciones</a></li>
+                <li data-icon="featured"><a >Mis Oraciones</a></li>
+            </ul>
+        </li>
+    </ul>
+   
+   
+    <div data-role="footer">
+        <div data-role="tabstrip">
+            <a href="#tabstrip-rating" data-icon="favorites">créditos
+            </a><a href="#tabstrip-settings" data-icon="settings">configuración</a>
+        </div>
+    </div>
+    
+    </div>
+    
+    
+    <style scoped>
+#listview-templates .head {
+	display: block;
+	margin: 1em;
+	height:200px;
+	background: url(obji/img/intro/dove.png) no-repeat center center;
+	background-size:contain;
+}
+.km-ios #listview-templates .head {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+</style>
+    
+    <style>
+	#listview-templates .km-content
+{
+   // background-color: #f0f0f0;
+	background: url(obji/img/intro/nubes.jpg);
+	background-position:center;
+	background-position:top;
+	background-origin:border-box;
+		background-size:cover;
+}
+
+    #botones{
+	
+		}
+		
+	.km-listview .km-list {
+opacity:.8;
+}
+    
+    </style>
+    <script>
+    var app = new kendo.mobile.Application(document.body);
+	
+	
+</script>
+</body>
+</html>
