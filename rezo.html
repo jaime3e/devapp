@@ -4,28 +4,131 @@
     <title>About</title>
 </head>
 <body>
+
+
+
     <div data-role="view" data-layout="rezo">
+    
+    
+    <ul id="button-group" data-role="buttongroup"  data-select="selectButton">
+       
+       <li data-icon="play">
+       </li>
+       <li data-icon="pause">
+       </li>
+       <li data-icon="stop">
+       </li>
+    </ul>
+    
+    
     Dios te salve María llena eres de gracia el Señor es contigo; bendita tú eres  entre todas las mujeres, y bendito es el fruto de tu vientre, Jesús. Santa María, Madre de Dios, ruega por nosotros, pecadores, ahora y en la ahora de nuestra muerte. Amén
+   
+   
+   
+   
+   
+   
     </div>
-    
     <script>
-	playAudio('obji/sounds/a1.mp3');
-	function playAudio(url) {
-		// Play the audio file at url
-		var my_media = new Media(url,
-			// success callback
-			function() {
-			   alert("success");
-			},
-			// error callback
-			function(err) {
-			   alert("fail");
-		});
-	
-		// Play audio
-		my_media.play();
-	}
+    function selectButton() {
+       alert("Selected button: " + this.current().index());
+	   if(this.current().index()==1){
+		   	pauseAudio();
+		   }
+		if(this.current().index()==0){
+		   	pauseAudio();
+		   }
+		   if(this.current().index()==2){
+		   	stopAudio();
+		   }
+    }
+</script>
+    <script type="text/javascript" charset="utf-8">
+
+        // Wait for Cordova to load
+        //
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // Cordova is ready
+        //
+        function onDeviceReady() {
+            playAudio("obji/sounds/a1.mp3");
+        }
+
+        // Audio player
+        //
+        var my_media = null;
+        var mediaTimer = null;
+
+        // Play audio
+        //
+        function playAudio(src) {
+            if (my_media == null) {
+                // Create Media object from src
+                my_media = new Media(src, onSuccess, onError);
+            } // else play current audio
+            // Play audio
+            my_media.play();
+
+            // Update my_media position every second
+           
+        }
+
+        // Pause audio
+        // 
+        function pauseAudio() {
+            if (my_media) {
+                my_media.pause();
+            }
+        }
+
+        // Stop audio
+        // 
+        function stopAudio() {
+            if (my_media) {
+                my_media.stop();
+            }
+            clearInterval(mediaTimer);
+            mediaTimer = null;
+        }
+
+        // onSuccess Callback
+        //
+        function onSuccess() {
+            alert("playAudio():Audio Success");
+        }
+
+        // onError Callback 
+        //
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' + 
+                  'message: ' + error.message + '\n');
+        }
+
+     
+
+        </script>
     
-    </script>
+    
+    <style scoped>
+    #buttongroup-events .km-button:not(.km-back) {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    #buttongroup-events .photo {
+        width: 277px;
+        margin: 1em auto;
+        height: 120px;
+       // background: url("../../content/mobile/shared/player.jpg") no-repeat center center;
+        -webkit-background-size: auto 100%;
+        background-size: auto 100%;
+    }
+    #button-group {
+        margin: 1em auto;
+    }
+   
+</style>
+
+    
 </body>
 </html>
